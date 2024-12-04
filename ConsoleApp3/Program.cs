@@ -8,7 +8,7 @@ namespace HaromszogTipusaOOP
 
         public HTipus(int a, int b, int c)
         {
-            
+        
             if (a <= 0 || b <= 0 || c <= 0)
                 throw new Exception("Az oldalhosszúságoknak pozitív számnak kell lenniük!");
 
@@ -68,15 +68,32 @@ namespace HaromszogTipusaOOP
 
 
             a = GetValidInput("a");
-            if (a == 0) return;
+            if (a == 0) {
+                Console.WriteLine("Hibás érték! Kérem, adjon meg egy pozitív számot.");
+                Console.ReadKey();
+                return;
+            
+            }
 
 
             b = GetValidInput("b");
-            if (b == 0) return;
+            if (b == 0)
+            {
+                Console.WriteLine("Hibás érték! Kérem, adjon meg egy pozitív számot.");
+                Console.ReadKey();
+                return;
+
+            }
 
 
             c = GetValidInput("c");
-            if (c == 0) return;
+            if (c == 0)
+            {
+                Console.WriteLine("Hibás érték! Kérem, adjon meg egy pozitív számot.");
+                Console.ReadKey();
+                return;
+
+            }
 
             try
             {
@@ -105,23 +122,18 @@ namespace HaromszogTipusaOOP
                 Console.Write($"{side}: ");
                 string input = Console.ReadLine();
 
-                try 
+                try
                 {
-                    int.TryParse(input, out value);
-                        if (value <= 0)
-                    {
-                        return 0;
-                    }
+                   int.TryParse(input, out value);
                 }
-                catch 
+
+                catch
                 {
-                    Console.WriteLine("Hibás érték! Kérem, adjon meg egy pozitív számot.");
                     return 0;
                 }
-
+                
                 return value;
             }
-
         }
     }
 }
